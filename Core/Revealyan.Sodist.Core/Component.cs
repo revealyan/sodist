@@ -13,11 +13,6 @@ namespace Revealyan.Sodist.Core
         public string Name { get; }
         #endregion
 
-        #region data
-        [Parameter(Name = "StartDate")]
-        protected internal DateTime _startDate;
-        #endregion
-
         #region ctors
         public Component(string name, Dictionary<string, object?>? parameters = null, object[]? dependencies = null)
         {

@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package info;
+
+option csharp_namespace = "Revealyan.Sodist.Core.Protos";
+
+service WebAppInfo {
+  rpc GetInfo (InfoRequest) returns (InfoResponse);
+}
+
+message InfoRequest {
+}
+
+message InfoResponse {
+  string name = 1;
+}

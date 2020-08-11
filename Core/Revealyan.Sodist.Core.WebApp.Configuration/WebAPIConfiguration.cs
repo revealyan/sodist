@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace Revealyan.Sodist.Core.WebApp.Configurations
+namespace Revealyan.Sodist.Core.WebApp.Configuration
 {
     public class WebAPIConfiguration
     {
+
     }
 }

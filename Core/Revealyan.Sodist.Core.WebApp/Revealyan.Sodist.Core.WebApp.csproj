@@ -6,7 +6,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.27.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Revealyan.Sodist.Core.WebApp.Configuration\Revealyan.Sodist.Core.WebApp.Configuration.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\info.proto" GrpcServices="Server">
+      <SourceUri>https://protos.arq.studio/info.proto</SourceUri>
+    </Protobuf>
   </ItemGroup>
 
 </Project>

@@ -10,7 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
-using Revealyan.Sodist.Core.WebApp.Configurations;
+using Revealyan.Sodist.Core.WebApp.Configuration;
 
 namespace Revealyan.Sodist.Core.WebApp
 {
@@ -18,28 +18,37 @@ namespace Revealyan.Sodist.Core.WebApp
     {
         #region data
         public IConfiguration Configuration { get; }
-        public ApplicationConfiguration AppConfiguration { get; }
+        public WebAppConfiguration AppConfiguration { get; }
         #endregion
 
         #region ctors
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            AppConfiguration = JsonConvert.DeserializeObject<ApplicationConfiguration>(File.ReadAllText(Configuration["Application:AppConfigurationPath"]));
+            AppConfiguration = JsonConvert.DeserializeObject<WebAppConfiguration>(File.ReadAllText(Configuration["Application:AppConfigurationPath"]));
         }
         #endregion
 
         #region config-methods
         public void ConfigureServices(IServiceCollection services)
-        { 
-            if (AppConfiguration.UseControllers)
+        {
+            if (AppConfiguration.API != null)
             {
                 services.AddControllers();
             }
-            if (AppConfiguration.UseMvc)
+            if (AppConfiguration.MVC != null)
             {
                 services.AddMvc();
             }
+            if(AppConfiguration.GRPC != null)
+            {
+                services.AddGrpc();
+            }
+            if(AppConfiguration.Auth != null)
+            {
+
+            }
+
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -52,6 +61,7 @@ namespace Revealyan.Sodist.Core.WebApp
 
             app.UseEndpoints(endpoints =>
             {
+                
                 endpoints.MapControllers();
                 endpoints.MapGet("/", async context =>
                 {

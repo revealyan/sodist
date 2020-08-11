@@ -2,8 +2,8 @@
 
 namespace Revealyan.Sodist.Core.Configurations
 {
-    public class ComponentsConfiguration
+    public struct ComponentsConfiguration
     {
-
+        public ComponentInfo[] Components { get; set; }
     }
 }

@@ -1,12 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Protos\info.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Google.Protobuf" Version="3.9.1" />
+    <PackageReference Include="Grpc.AspNetCore.Server" Version="2.23.2" />
     <PackageReference Include="Grpc.Net.ClientFactory" Version="2.23.2" />
     <PackageReference Include="Grpc.Tools" Version="2.23.0">
       <PrivateAssets>all</PrivateAssets>
@@ -15,12 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Protobuf Include="..\Revealyan.Sodist.Sandbox.GRPCService\Protos\greet.proto" GrpcServices="Client">
-      <Link>Protos\greet.proto</Link>
-    </Protobuf>
-    <Protobuf Include="..\Revealyan.Sodist.Sandbox.GRPCService\Protos\greet2.proto" GrpcServices="Client">
-      <Link>Protos\greet2.proto</Link>
-    </Protobuf>
+    <Protobuf Include="Protos\info.proto" GrpcServices="Both" />
   </ItemGroup>
 
 </Project>
