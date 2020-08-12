@@ -11,11 +11,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Commons\Revealyan.Sodist.Commons.Authentications.Interface\Revealyan.Sodist.Commons.Authentications.Interface.csproj" />
+    <ProjectReference Include="..\..\Commons\Revealyan.Sodist.Commons.Authorizations.Interface\Revealyan.Sodist.Commons.Authorizations.Interface.csproj" />
     <ProjectReference Include="..\Revealyan.Sodist.Core.WebApp.Configuration\Revealyan.Sodist.Core.WebApp.Configuration.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Protobuf Include="Protos\info.proto" GrpcServices="Server">
+    <Protobuf Include="Protos\info.proto" GrpcServices="Both">
       <SourceUri>https://protos.arq.studio/info.proto</SourceUri>
     </Protobuf>
   </ItemGroup>

@@ -1,11 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using Revealyan.Sodist.Core.WebApp.Configuration.JsonConverters;
 
 namespace Revealyan.Sodist.Core.WebApp.Configuration
 {
+    [JsonConverter(typeof(AuthConfigurationConverter))]
     public class AuthConfiguration
     {
-        public AuthType Type { get; set; } = AuthType.Remote;
-        public Dictionary<string, string> Parameters { get; set; } = new Dictionary<string, string>();
+        public AuthType Type { get; set; }
+        public AuthParameters? Parameters { get; set; }
+    }
+
+    public abstract class AuthParameters
+    {
+
     }
 
     public enum AuthType

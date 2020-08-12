@@ -4,8 +4,7 @@ using System.Text;
 
 namespace Revealyan.Sodist.Core.WebApp.Configuration
 {
-    public class WebAPIConfiguration
+    public class RemoteParameters : AuthParameters
     {
-        public string[] APIAssemblies { get; set; } = new string[0];
     }
 }
